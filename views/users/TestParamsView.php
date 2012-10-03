@@ -1,11 +1,14 @@
+<?php global $VOD_TPL; ?>
+
+
 <?php
-
-global $params_view;
-
 echo '<pre>$params_view: ';
-print_r($params_view);
+print_r($VOD_TPL->params);
 echo '</pre>';
-
-global $VOD_DB;
-
 ?>
+
+<br />
+Test d'une inclusion
+<br />
+
+<?php $VOD_TPL->get('Header'); ?>

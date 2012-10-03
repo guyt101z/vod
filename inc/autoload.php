@@ -4,6 +4,7 @@ $path = substr(__DIR__, 0, -3);
 
 // Général
 
+require_once $path.'inc'.DIRECTORY_SEPARATOR.'Template.php';
 require_once $path.'controllers'.DIRECTORY_SEPARATOR.'Controller.php';
 require_once $path.'models'.DIRECTORY_SEPARATOR.'Model.php';
 

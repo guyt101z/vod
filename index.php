@@ -3,8 +3,12 @@
 require_once 'inc/autoload.php';
 require_once 'inc/Database.php';
 
+// Databse
 $db = new Database('127.0.0.1', 'vod', 'root', '');
 $VOD_DB = $db->connect();
+
+// Template
+$VOD_TPL = new Template();
 
 $params_view = null;
 

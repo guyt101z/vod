@@ -4,7 +4,8 @@ class Controller
 {
     protected $path;
     private $model;
-    private $template;
+    private $template_name;
+    protected $template;
     public $params_view;
     
     public function __construct($model) {
@@ -15,29 +16,10 @@ class Controller
         
         if ($model != FALSE)
             $this->model = $model;
-    }
-    
-    public function loadTemplate($name) {
-        if (!isset($name) || empty($name))
-            return FALSE;
         
-        $this->template = strtolower($name);
-    }
-    
-    public function loadView($name, $params = array()) {
-        global $params_view;
-        
-        if (!isset($name) || empty($name))
-            return FALSE;
-        
-        $params_view = null;
-        if (count($params) > 0)
-            $params_view = $params;
-        
-        if (empty($this->template))
-            require_once $this->path.'views'.DIRECTORY_SEPARATOR.$name.'View.php';
-        else
-            require_once $this->path.'views'.DIRECTORY_SEPARATOR.$this->template.DIRECTORY_SEPARATOR.$name.'View.php';
+        // Template
+        global $VOD_TPL;
+        $this->template = $VOD_TPL;
     }
     
     public function loadModel($name) {

@@ -27,25 +27,26 @@ class FooController extends Controller
      * Test de chargement d'une vue
      */
     public function test() {
-        echo 'function test'."\n";
-        $this->loadView('Test');
+        $this->template->view('Test');
     }
     
     /**
      * Test de chargement d'un template + vue
      */
     public function testTemplate() {
-        
-        $this->loadTemplate('users');
-        $this->loadView('TestTwo');
+        $this->template->set('users');
+        $this->template->view('TestTwo');
     }
     
+    /**
+     * Template + params
+     */
     public function testParams() {
-        $this->loadTemplate('users');
+        $this->template->set('users');
         
         $params = array();
         $params['Test'] = 'lorem ipsum';
         
-        $this->loadView('TestParams', $params);
+        $this->template->view('TestParams', $params);
     }
 }
